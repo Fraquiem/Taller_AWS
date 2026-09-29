@@ -14,7 +14,13 @@
       "Resource": "arn:aws:s3:::REPLACE_BUCKET/athena-results/*"
     },
     {
-      "Sid": "Point6BucketLocation",
+      "Sid": "Point6BucketLifecycle",
+      "Effect": "Allow",
+      "Action": ["s3:CreateBucket"],
+      "Resource": "arn:aws:s3:::eia-p6-*"
+    },
+    {
+      "Sid": "Point6BucketConfiguration",
       "Effect": "Allow",
       "Action": ["s3:GetBucketLocation", "s3:PutPublicAccessBlock", "s3:PutBucketEncryption", "s3:PutBucketTagging", "s3:DeleteBucket"],
       "Resource": "arn:aws:s3:::REPLACE_BUCKET"
