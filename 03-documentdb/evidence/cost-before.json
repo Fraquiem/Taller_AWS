@@ -1,0 +1,29 @@
+{
+  "timestamp_utc": "2026-09-29T16:43:14Z",
+  "region": "us-east-2",
+  "pricing_basis": {
+    "documentdb_serverless_standard_usd_per_dcu_hour": 0.0822,
+    "configured_min_dcu": 0.5,
+    "configured_max_dcu": 1.0,
+    "minimum_documentdb_usd_per_hour": 0.0411,
+    "bastion_instance_type": "t3.micro",
+    "bastion_reference_usd_per_hour": 0.0104,
+    "ebs": "gp3 8 GiB",
+    "secret_reference_usd_per_month": 0.40,
+    "known_compute_4h_usd": 0.206
+  },
+  "formula": "H*(0.5*0.0822+0.0104), excluding storage, IO, backup, transfer, public IP and API charges",
+  "sources": [
+    "https://aws.amazon.com/documentdb/pricing/",
+    "https://aws.amazon.com/ec2/pricing/on-demand/",
+    "https://aws.amazon.com/secrets-manager/pricing/"
+  ],
+  "availability_check": {
+    "engine": "docdb",
+    "engine_version": "5.0.0",
+    "db_instance_class": "db.serverless",
+    "storage_type": "standard",
+    "result": "available"
+  },
+  "secret_values": "not recorded"
+}

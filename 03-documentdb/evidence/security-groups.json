@@ -1,0 +1,15 @@
+{
+  "timestamp_utc": "2026-09-29T16:46:23Z",
+  "bastion_security_group": {
+    "id": "sg-0f22166748cd9b26f",
+    "ssh_ingress_cidr": "201.221.176.28/32",
+    "port": 22
+  },
+  "documentdb_security_group": {
+    "id": "sg-0ae6afe606c6d2ac1",
+    "ingress_port": 27017,
+    "source_security_group_id": "sg-0f22166748cd9b26f",
+    "public_cidr_ingress": false
+  },
+  "secret_values": "not recorded"
+}

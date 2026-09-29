@@ -1,0 +1,42 @@
+{
+  "region": "us-east-2",
+  "engine": "neptune",
+  "engine_version": "1.4.8.0",
+  "db_instance_class": "db.t3.medium",
+  "orderable": true,
+  "default_vpc_id": "vpc-0ae3fac046f9e2aa2",
+  "subnets": [
+    {
+      "id": "subnet-03aafe4ccebfd7c93",
+      "az": "us-east-2a"
+    },
+    {
+      "id": "subnet-0da7e824cc506d8cc",
+      "az": "us-east-2c"
+    }
+  ],
+  "public_endpoint": true,
+  "iam_db_auth": true,
+  "tls": true,
+  "internet_gateway_id": "igw-0f6239e74cf820a8e",
+  "internet_gateway_attached_by_run": false,
+  "ingress_cidr": "201.221.176.28/32",
+  "tags": [
+    {
+      "Key": "Project",
+      "Value": "EIA-AWS-Activity"
+    },
+    {
+      "Key": "Environment",
+      "Value": "Lab"
+    },
+    {
+      "Key": "ManagedBy",
+      "Value": "OMP"
+    },
+    {
+      "Key": "Point",
+      "Value": "4"
+    }
+  ]
+}

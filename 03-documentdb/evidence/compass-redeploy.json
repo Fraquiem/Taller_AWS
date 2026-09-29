@@ -1,0 +1,41 @@
+{
+  "timestamp_utc": "2026-09-29T17:22:52.128559Z",
+  "region": "us-east-2",
+  "terraform_apply": "complete_16_resources",
+  "cluster_identifier": "eia-documentdb",
+  "cluster_status": "available",
+  "cluster_engine": "docdb",
+  "engine_version": "5.0.0",
+  "instance_class": "db.serverless",
+  "serverless_scaling": {
+    "min_capacity": 0.5,
+    "max_capacity": 1.0
+  },
+  "storage_type": "standard",
+  "docdb_endpoint": "eia-documentdb.cluster-cx0g2ysw8hke.us-east-2.docdb.amazonaws.com",
+  "docdb_port": 27017,
+  "bastion_instance_id": "i-0ade2d89e471bc1cc",
+  "bastion_public_ip": "16.59.53.3",
+  "bastion_security_group_id": "sg-0464d485c48dc283",
+  "trusted_cidr": "201.221.176.28/32",
+  "docdb_security_group_id": "sg-0fbf847fd3fcea8f",
+  "secret_arn": "arn:aws:secretsmanager:us-east-2:<ACCOUNT_ID_REDACTED>:secret:eia-documentdb-<REDACTED>",
+  "key_name": "eia-documentdb-compass-1790701995",
+  "private_key_path": "/tmp/eia-documentdb-compass-1790701995.pem",
+  "ca_file": "/tmp/global-bundle.pem",
+  "tunnel": {
+    "local": "127.0.0.1:27018",
+    "remote": "docdb_endpoint:27017",
+    "process_started": true,
+    "tcp_connectivity": "ok"
+  },
+  "credentials": "not_recorded",
+  "compass_parameters": {
+    "tls": true,
+    "replicaSet": "rs0",
+    "retryWrites": false,
+    "directConnection": true,
+    "tlsAllowInvalidHostnames": true
+  },
+  "cleanup": "blocked_until_explicit_coordinator_confirmation"
+}

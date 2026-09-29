@@ -1,0 +1,22 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ListInputPrefix",
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::REPLACE_BUCKET",
+      "Condition": {
+        "StringLike": {
+          "s3:prefix": ["punto5/input", "punto5/input/*"]
+        }
+      }
+    },
+    {
+      "Sid": "ReadInputObjects",
+      "Effect": "Allow",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::REPLACE_BUCKET/punto5/input/*"
+    }
+  ]
+}

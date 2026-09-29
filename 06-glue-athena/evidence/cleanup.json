@@ -1,0 +1,12 @@
+{
+  "order": [
+    "crawler",
+    "database_and_catalog_tables",
+    "athena_workgroup",
+    "s3_objects_and_bucket",
+    "glue_role_and_inline_policy"
+  ],
+  "status": "cleaned",
+  "timestamp": "2026-09-29T21:15:43.280007+00:00",
+  "verified_zero_resources": true
+}

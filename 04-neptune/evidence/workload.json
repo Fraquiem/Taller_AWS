@@ -1,0 +1,75 @@
+{
+  "mode": "execute",
+  "vertices": 10,
+  "edges": 15,
+  "minimums_met": true,
+  "traversals": [
+    "people_and_courses",
+    "skill_reachability",
+    "team_to_course"
+  ],
+  "sanitized_results": {
+    "people_and_courses": [
+      {
+        "person": "ana",
+        "course": "eia"
+      },
+      {
+        "person": "bruno",
+        "course": "eia"
+      },
+      {
+        "person": "carla",
+        "course": "cloud"
+      },
+      {
+        "person": "diego",
+        "course": "cloud"
+      }
+    ],
+    "skill_reachability": [
+      {
+        "person": "ana",
+        "skills": [
+          "aws",
+          "python"
+        ]
+      },
+      {
+        "person": "bruno",
+        "skills": [
+          "graph",
+          "python"
+        ]
+      },
+      {
+        "person": "carla",
+        "skills": [
+          "aws",
+          "graph"
+        ]
+      },
+      {
+        "person": "diego",
+        "skills": [
+          "aws",
+          "python"
+        ]
+      }
+    ],
+    "team_to_course": [
+      {
+        "person": "ana",
+        "course": "eia"
+      },
+      {
+        "person": "bruno",
+        "course": "eia"
+      },
+      {
+        "person": "carla",
+        "course": "cloud"
+      }
+    ]
+  }
+}

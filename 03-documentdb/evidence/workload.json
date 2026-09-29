@@ -1,0 +1,15 @@
+{
+  "timestamp_utc": "2026-09-29T16:55:00Z",
+  "connection": {
+    "transport": "SSH local tunnel",
+    "local_endpoint": "127.0.0.1:27018",
+    "tls": true,
+    "ca_bundle": "AWS RDS global-bundle.pem",
+    "credentials_source": "AWS Secrets Manager",
+    "secret_values": "not recorded"
+  },
+  "inserted": 10,
+  "filter_count": 4,
+  "filter_sorted_scores_desc": [90, 84, 78, 72],
+  "aggregation": [{"program":"data","count":10,"average_score":76.5}]
+}

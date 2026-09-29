@@ -1,0 +1,14 @@
+{
+  "api_checks": [
+    "redshift-serverless.list_namespaces",
+    "redshift-serverless.list_workgroups",
+    "redshift-data.execute_statement",
+    "secretsmanager.get_secret_value",
+    "s3.upload_file",
+    "iam.create_role"
+  ],
+  "execute": false,
+  "region": "us-east-2",
+  "requested_base_capacity_rpu": 4,
+  "timestamp": "2026-09-29T21:06:41.114970+00:00"
+}

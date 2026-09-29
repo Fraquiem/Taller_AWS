@@ -1,0 +1,16 @@
+{
+  "timestamp_utc": "2026-09-29T17:18:30Z",
+  "region": "us-east-2",
+  "terraform_destroy": "complete: 16 destroyed",
+  "docdb_instance": "absent",
+  "docdb_cluster": "absent",
+  "ec2_bastion": "terminated",
+  "vpc": "absent",
+  "ebs_point3": [],
+  "nat_gateways_point3": [],
+  "eips_point3": [],
+  "secret": "absent",
+  "temporary_keypair": "deleted",
+  "private_key_file": "deleted",
+  "secret_values": "not recorded"
+}

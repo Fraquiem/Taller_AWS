@@ -1,0 +1,33 @@
+{
+  "region": "us-east-2",
+  "cluster_identifier": "eia-p4-1790707945",
+  "instance_identifier": "eia-p4-writer-1790707945",
+  "instance_class": "db.t3.medium",
+  "engine_version": "1.4.8.0",
+  "cluster_status": "available",
+  "instance_status": "available",
+  "publicly_accessible": true,
+  "iam_auth": true,
+  "storage_encrypted": true,
+  "security_group_id": "sg-093a1779b9e8dbde3",
+  "subnet_group": "eia-p4-subnets-1790707945",
+  "endpoint": "[REDACTED]",
+  "tags": [
+    {
+      "Key": "Project",
+      "Value": "EIA-AWS-Activity"
+    },
+    {
+      "Key": "Environment",
+      "Value": "Lab"
+    },
+    {
+      "Key": "ManagedBy",
+      "Value": "OMP"
+    },
+    {
+      "Key": "Point",
+      "Value": "4"
+    }
+  ]
+}

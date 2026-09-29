@@ -1,0 +1,7 @@
+{
+  "timestamp": "2026-09-29T20:55:24Z",
+  "executed": false,
+  "reason": "Final namespace-first retry created namespace without iamRoles, then created workgroup, but workgroup remained MODIFYING until timeout; redshift_workload.py was not reached.",
+  "results": [],
+  "secret_logged": false
+}

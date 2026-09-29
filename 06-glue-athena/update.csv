@@ -1,0 +1,2 @@
+order_id,customer_id,region,order_date,amount,status
+1003,C003,Pacifico,2026-01-31,275.00,paid

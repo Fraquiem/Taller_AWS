@@ -1,0 +1,20 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "NeptuneDataQueriesOnly",
+      "Effect": "Allow",
+      "Action": [
+        "neptune-db:ReadDataViaQuery",
+        "neptune-db:WriteDataViaQuery"
+      ],
+      "Resource": "arn:aws:neptune-db:us-east-2:ACCOUNT_ID:CLUSTER_RESOURCE_ID/*"
+    },
+    {
+      "Sid": "DescribeTargetCluster",
+      "Effect": "Allow",
+      "Action": ["rds:DescribeDBClusters"],
+      "Resource": "*"
+    }
+  ]
+}

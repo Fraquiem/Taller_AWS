@@ -1,0 +1,27 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "UploadInputCsv",
+      "Effect": "Allow",
+      "Action": ["s3:PutObject"],
+      "Resource": "arn:aws:s3:::REPLACE_BUCKET/punto5/input/*"
+    },
+    {
+      "Sid": "ReadAdminSecretAtRuntime",
+      "Effect": "Allow",
+      "Action": ["secretsmanager:GetSecretValue"],
+      "Resource": "REPLACE_SECRET_ARN"
+    },
+    {
+      "Sid": "RunDataApiStatements",
+      "Effect": "Allow",
+      "Action": [
+        "redshift-data:ExecuteStatement",
+        "redshift-data:DescribeStatement",
+        "redshift-data:GetStatementResult"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

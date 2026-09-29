@@ -1,0 +1,14 @@
+{
+  "region": "us-east-2",
+  "cleanup_verified": true,
+  "leftover_counts": {
+    "neptune_clusters": 0,
+    "neptune_instances": 0,
+    "tagged_subnet_groups": 0,
+    "tagged_security_groups": 0,
+    "tagged_igws": 0,
+    "eips": 0,
+    "nat_gateways": 0,
+    "tagged_enis": 0
+  }
+}

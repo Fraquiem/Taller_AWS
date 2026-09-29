@@ -1,0 +1,5 @@
+{
+  "region": "us-east-2",
+  "note": "No cost API estimate; Neptune resources absent before run",
+  "caller": "arn:aws:iam::241732001318:user/user_cli"
+}

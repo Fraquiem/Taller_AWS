@@ -1,0 +1,21 @@
+{
+  "timestamp_utc": "2026-09-29T16:46:45Z",
+  "region": "us-east-2",
+  "cluster_identifier": "eia-documentdb",
+  "cluster_engine": "docdb",
+  "cluster_engine_version": "5.0.0",
+  "cluster_status_observed": "available",
+  "cluster_endpoint": "eia-documentdb.cluster-cx0g2ysw8hke.us-east-2.docdb.amazonaws.com",
+  "port": 27017,
+  "serverless_min_dcu": 0.5,
+  "serverless_max_dcu": 1.0,
+  "instance_identifier": "eia-documentdb-writer",
+  "instance_class": "db.serverless",
+  "bastion_instance_id": "i-0d88aec8229e055b0",
+  "bastion_public_ip": "13.58.173.142",
+  "bastion_instance_type": "t3.micro",
+  "bastion_security_group_id": "sg-0f22166748cd9b26f",
+  "docdb_security_group_id": "sg-0ae6afe606c6d2ac1",
+  "secret_arn": "arn:aws:secretsmanager:us-east-2:241732001318:secret:eia-documentdb-eaf4207ceeb2cf70edb02566e3-mKkRv6",
+  "secret_values": "not recorded"
+}

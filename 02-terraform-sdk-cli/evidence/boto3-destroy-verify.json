@@ -1,0 +1,51 @@
+{
+  "timestamp_utc": "2026-09-29T15:57:01.665158+00:00",
+  "method": "boto3",
+  "absence_checks": [
+    {
+      "resource": "s3",
+      "result": {
+        "rc": 254,
+        "stdout": "",
+        "stderr": "aws: [ERROR]: An error occurred (404) when calling the HeadBucket operation: Not Found"
+      }
+    },
+    {
+      "resource": "ec2",
+      "result": {
+        "rc": 0,
+        "stdout": "{\n    \"Reservations\": [\n        {\n            \"ReservationId\": \"r-0bde21f7520f39cef\",\n            \"OwnerId\": \"241732001318\",\n            \"Groups\": [],\n            \"Instances\": [\n                {\n                    \"Architecture\": \"x86_64\",\n                    \"BlockDeviceMappings\": [],\n                    \"ClientToken\": \"a5651a9f-c459-459a-a915-2ed832bd8547\",\n                    \"EbsOptimized\": false,\n                    \"EnaSupport\": true,\n                    \"Hypervisor\": \"xen\",\n                    \"NetworkInterfaces\": [],\n                    \"RootDeviceName\": \"/dev/xvda\",\n                    \"RootDeviceType\": \"ebs\",\n                    \"SecurityGroups\": [],\n                    \"StateReason\": {\n                        \"Code\": \"Client.UserInitiatedShutdown\",\n                        \"Message\": \"Client.UserInitiatedShutdown: User initiated shutdown\"\n                    },\n                    \"Tags\": [\n                        {\n                            \"Key\": \"ManagedBy\",\n                            \"Value\": \"OMP\"\n                        },\n                        {\n                            \"Key\": \"Project\",\n                            \"Value\": \"EIA-AWS-Activity\"\n                        },\n                        {\n                            \"Key\": \"Environment\",\n                            \"Value\": \"Lab\"\n                        }\n                    ],\n                    \"VirtualizationType\": \"hvm\",\n                    \"CpuOptions\": {\n                        \"CoreCount\": 1,\n                        \"ThreadsPerCore\": 2\n                    },\n                    \"CapacityReservationSpecification\": {\n                        \"CapacityReservationPreference\": \"open\"\n                    },\n                    \"HibernationOptions\": {\n                        \"Configured\": false\n                    },\n                    \"MetadataOptions\": {\n                        \"State\": \"pending\",\n                        \"HttpTokens\": \"required\",\n                        \"HttpPutResponseHopLimit\": 1,\n                        \"HttpEndpoint\": \"enabled\",\n                        \"HttpProtocolIpv6\": \"disabled\",\n                        \"InstanceMetadataTags\": \"disabled\"\n                    },\n                    \"EnclaveOptions\": {\n                        \"Enabled\": false\n                    },\n                    \"BootMode\": \"uefi-preferred\",\n                    \"PlatformDetails\": \"Linux/UNIX\",\n                    \"UsageOperation\": \"RunInstances\",\n                    \"UsageOperationUpdateTime\": \"2026-09-29T15:48:30+00:00\",\n                    \"MaintenanceOptions\": {\n                        \"AutoRecovery\": \"default\",\n                        \"RebootMigration\": \"default\"\n                    },\n                    \"CurrentInstanceBootMode\": \"uefi\",\n                    \"NetworkPerformanceOptions\": {\n                        \"BandwidthWeighting\": \"default\"\n                    },\n                    \"Operator\": {\n                        \"Managed\": false,\n                        \"HiddenByDefault\": false\n                    },\n                    \"SecondaryInterfaces\": [],\n                    \"InstanceId\": \"i-0d591f1e2a1cb6c2b\",\n                    \"ImageId\": \"ami-0e62c02245be213d7\",\n                    \"State\": {\n                        \"Code\": 48,\n                        \"Name\": \"terminated\"\n                    },\n                    \"PrivateDnsName\": \"\",\n                    \"PublicDnsName\": \"\",\n                    \"StateTransitionReason\": \"User initiated (2026-09-29 15:55:28 GMT)\",\n                    \"AmiLaunchIndex\": 0,\n                    \"ProductCodes\": [],\n                    \"InstanceType\": \"t3.micro\",\n                    \"LaunchTime\": \"2026-09-29T15:48:30+00:00\",\n                    \"Placement\": {\n                        \"AvailabilityZoneId\": \"use2-az1\",\n                        \"GroupName\": \"\",\n                        \"Tenancy\": \"default\",\n                        \"AvailabilityZone\": \"us-east-2a\"\n                    },\n                    \"Monitoring\": {\n                        \"State\": \"disabled\"\n                    }\n                }\n            ]\n        }\n    ]\n}",
+        "stderr": ""
+      }
+    },
+    {
+      "resource": "rds",
+      "result": {
+        "rc": 254,
+        "stdout": "",
+        "stderr": "aws: [ERROR]: An error occurred (DBInstanceNotFound) when calling the DescribeDBInstances operation: DBInstance eia-lab-fbf4fcb4 not found."
+      }
+    },
+    {
+      "resource": "secret",
+      "result": {
+        "rc": 254,
+        "stdout": "",
+        "stderr": "aws: [ERROR]: An error occurred (ResourceNotFoundException) when calling the DescribeSecret operation: Secrets Manager can't find the specified secret."
+      }
+    },
+    {
+      "resource": "vpc",
+      "result": {
+        "rc": 254,
+        "stdout": "",
+        "stderr": "aws: [ERROR]: An error occurred (InvalidVpcID.NotFound) when calling the DescribeVpcs operation: The vpc ID 'vpc-0f036dc5ffb208e2f' does not exist"
+      }
+    }
+  ],
+  "tag_audit": {
+    "rc": 0,
+    "stdout": "{\n    \"ResourceTagMappingList\": [\n        {\n            \"ResourceARN\": \"arn:aws:ec2:us-east-2:241732001318:instance/i-0d591f1e2a1cb6c2b\",\n            \"Tags\": [\n                {\n                    \"Key\": \"Project\",\n                    \"Value\": \"EIA-AWS-Activity\"\n                },\n                {\n                    \"Key\": \"ManagedBy\",\n                    \"Value\": \"OMP\"\n                },\n                {\n                    \"Key\": \"Environment\",\n                    \"Value\": \"Lab\"\n                }\n            ]\n        },\n        {\n            \"ResourceARN\": \"arn:aws:ec2:us-east-2:241732001318:volume/vol-05e4bc92f1139b876\",\n            \"Tags\": [\n                {\n                    \"Key\": \"Project\",\n                    \"Value\": \"EIA-AWS-Activity\"\n                },\n                {\n                    \"Key\": \"ManagedBy\",\n                    \"Value\": \"OMP\"\n                },\n                {\n                    \"Key\": \"Environment\",\n                    \"Value\": \"Lab\"\n                }\n            ]\n        },\n        {\n            \"ResourceARN\": \"arn:aws:ec2:us-east-2:241732001318:instance/i-065909e9712d020ab\",\n            \"Tags\": [\n                {\n                    \"Key\": \"Project\",\n                    \"Value\": \"EIA-AWS-Activity\"\n                },\n                {\n                    \"Key\": \"ManagedBy\",\n                    \"Value\": \"OMP\"\n                },\n                {\n                    \"Key\": \"Environment\",\n                    \"Value\": \"Lab\"\n                }\n            ]\n        },\n        {\n            \"ResourceARN\": \"arn:aws:ec2:us-east-2:241732001318:instance/i-04218318a80b0bb3c\",\n            \"Tags\": [\n                {\n                    \"Key\": \"Project\",\n                    \"Value\": \"EIA-AWS-Activity\"\n                },\n                {\n                    \"Key\": \"ManagedBy\",\n                    \"Value\": \"OMP\"\n                },\n                {\n                    \"Key\": \"Environment\",\n                    \"Value\": \"Lab\"\n                }\n            ]\n        }\n    ]\n}",
+    "stderr": ""
+  }
+}

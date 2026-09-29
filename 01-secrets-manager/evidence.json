@@ -1,0 +1,21 @@
+{
+  "point": 1,
+  "region": "us-east-2",
+  "identity": "arn:aws:iam::241732001318:user/user_cli",
+  "secret_name": "EIA-AWS-Activity-p1-test-secret",
+  "secret_arn": "arn:aws:secretsmanager:us-east-2:241732001318:secret:EIA-AWS-Activity-p1-test-secret-5LtaXK",
+  "created_at": "2026-09-29T07:17:12-05:00",
+  "read_before_update": {
+    "keys": ["password", "username"],
+    "value_sha256": "00c98dace74679b31cafd73241cc23298af9f65ad64795b37c4460a587e756df",
+    "version_stage": "AWSCURRENT"
+  },
+  "updated_version_id": "1ad8b26a-788e-45b5-a607-9aaaf1752e00",
+  "read_after_update": {
+    "keys": ["password", "username"],
+    "value_sha256": "81c83861fe22fe814df5e8f66d03aed0434a9f9d3019248571612085559d49f5",
+    "version_stage": "AWSCURRENT"
+  },
+  "deleted_at": "2026-09-29T07:18:45-05:00",
+  "cleanup_verification": "describe-secret returned DeletedDate and no active secret remains"
+}

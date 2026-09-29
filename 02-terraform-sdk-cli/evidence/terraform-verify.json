@@ -1,0 +1,113 @@
+{
+  "timestamp_utc": "2026-09-29T15:40:53.797344+00:00",
+  "method": "terraform",
+  "region": "us-east-2",
+  "resources": {
+    "bucket": {
+      "name": "eia-aws-activity-15525fb8",
+      "head_ok": true,
+      "encryption": {
+        "ServerSideEncryptionConfiguration": {
+          "Rules": [
+            {
+              "ApplyServerSideEncryptionByDefault": {
+                "SSEAlgorithm": "AES256"
+              },
+              "BucketKeyEnabled": false,
+              "BlockedEncryptionTypes": {
+                "EncryptionType": [
+                  "SSE-C"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "public_access_block": {
+        "PublicAccessBlockConfiguration": {
+          "BlockPublicAcls": true,
+          "IgnorePublicAcls": true,
+          "BlockPublicPolicy": true,
+          "RestrictPublicBuckets": true
+        }
+      }
+    },
+    "ec2": {
+      "id": "i-065909e9712d020ab",
+      "state": "running",
+      "type": "t3.micro",
+      "subnet": "subnet-072086dff4a39609c",
+      "az": "us-east-2a",
+      "volumes": [
+        {
+          "DeviceName": "/dev/xvda",
+          "Ebs": {
+            "AttachTime": "2026-09-29T15:34:16+00:00",
+            "DeleteOnTermination": true,
+            "Status": "attached",
+            "VolumeId": "vol-05e4bc92f1139b876",
+            "EbsCardIndex": 0
+          }
+        }
+      ]
+    },
+    "rds": {
+      "id": "eia-lab-15525fb8",
+      "status": "available",
+      "engine": "postgres",
+      "class": "db.t3.micro",
+      "storage": 20,
+      "storage_type": "gp3",
+      "encrypted": true,
+      "multi_az": false,
+      "public": false,
+      "secret": "arn:aws:secretsmanager:us-east-2:241732001318:secret:rds!db-6860f346-8bbb-4804-908a-24c11a13efa5-0qajSc"
+    },
+    "secret": {
+      "metadata": {
+        "arn": "arn:aws:secretsmanager:us-east-2:241732001318:secret:rds!db-6860f346-8bbb-4804-908a-24c11a13efa5-0qajSc",
+        "name": "rds!db-6860f346-8bbb-4804-908a-24c11a13efa5"
+      },
+      "no_secret_string_read": true
+    },
+    "vpc": {
+      "Vpcs": [
+        {
+          "OwnerId": "241732001318",
+          "InstanceTenancy": "default",
+          "CidrBlockAssociationSet": [
+            {
+              "AssociationId": "vpc-cidr-assoc-0c15a8a641159a984",
+              "CidrBlock": "10.42.0.0/16",
+              "CidrBlockState": {
+                "State": "associated"
+              }
+            }
+          ],
+          "IsDefault": false,
+          "Tags": [
+            {
+              "Key": "Project",
+              "Value": "EIA-AWS-Activity"
+            },
+            {
+              "Key": "Environment",
+              "Value": "Lab"
+            },
+            {
+              "Key": "ManagedBy",
+              "Value": "OMP"
+            }
+          ],
+          "BlockPublicAccessStates": {
+            "InternetGatewayBlockMode": "off"
+          },
+          "VpcId": "vpc-0eba813c0cdbdee6e",
+          "State": "available",
+          "CidrBlock": "10.42.0.0/16",
+          "DhcpOptionsId": "dopt-09fdb53e6c8fefdc8"
+        }
+      ]
+    }
+  }
+}

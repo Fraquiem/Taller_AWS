@@ -1,0 +1,33 @@
+{
+  "timestamp_utc": "2026-09-29T16:16:32Z",
+  "method": "aws-cli",
+  "region": "us-east-2",
+  "resources_created": {
+    "bucket": "eia-aws-activity-eia-lab-1790698311",
+    "instance": "i-0740d32db10d8924c",
+    "db": "eia-lab-eia-lab-1790698311",
+    "vpc": "vpc-003f2edfdac13db82"
+  },
+  "absence_rc": {
+    "s3_head_bucket": 254,
+    "ec2_describe_specific": 0,
+    "rds_describe_specific": 254,
+    "vpc_describe_specific": 254
+  },
+  "active_resource_queries": {
+    "active_tagged_ec2": [],
+    "tagged_vpcs": [],
+    "available_or_in_use_tagged_volumes": [],
+    "associated_elastic_ips": [],
+    "active_nat_gateways": [],
+    "tagged_network_interfaces": [],
+    "activity_buckets": []
+  },
+  "expected_notfound": {
+    "s3": true,
+    "rds": true,
+    "vpc": true,
+    "ec2_specific": false
+  },
+  "note": "EC2 describe-by-ID returned the terminated instance record (rc 0), but active-state query is empty; AWS retains terminated instance history. No active or billable residual resource was found. No final snapshot was requested."
+}

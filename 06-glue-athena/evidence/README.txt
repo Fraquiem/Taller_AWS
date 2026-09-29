@@ -1,0 +1,1 @@
+Esta carpeta contiene evidencia local del plan. dry-run.json fue generado sin importar boto3 ni llamar AWS. No contiene conteos ni estados reales de Glue/Athena. Una ejecución real debe guardar evidencia sanitizada y state.json solo tras autorización explícita.

@@ -1,0 +1,21 @@
+{
+  "validation": "confirmed_by_user",
+  "compass_version": "1.51.0",
+  "correction": {
+    "authSource": "admin",
+    "authMechanism": "SCRAM-SHA-1"
+  },
+  "screenshot": "Conexión_Compass.png",
+  "visible_in_screenshot": [
+    "Compass 1.51.0 is visible",
+    "Compass connection named Taller AWS is shown as connected",
+    "URI shows authSource=admin",
+    "URI shows authMechanism=SCRAM-SHA-1",
+    "Compass warns that TLS/SSL certificate validation is disabled"
+  ],
+  "tls_limitation": "The GUI connection succeeded with certificate validation disabled; this evidence does not prove CA validation in Compass.",
+  "python_tls": "The Python workload separately validated the AWS CA bundle; this result must not be attributed to Compass.",
+  "secure_alternative": "For production or lab use, select the trusted CA file and relax only hostname validation when supported for the local tunnel; otherwise do not disable certificate validation.",
+  "credentials": "not_recorded",
+  "scope": "This evidence does not claim query results or document contents not visible in the screenshot."
+}

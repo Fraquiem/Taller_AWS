@@ -1,0 +1,17 @@
+{
+  "mode": "dry-run",
+  "vertices": 10,
+  "edges": 15,
+  "minimums_met": true,
+  "traversals": [
+    "people_and_courses",
+    "skill_reachability",
+    "team_to_course"
+  ],
+  "planned_mutations": 25,
+  "sanitized_results": {
+    "people_and_courses": "not executed (dry-run)",
+    "skill_reachability": "not executed (dry-run)",
+    "team_to_course": "not executed (dry-run)"
+  }
+}

@@ -1,0 +1,32 @@
+# AWS credentials and local secrets
+.aws/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials
+config
+
+# Terraform state and plugins
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+crash.log
+crash.*.log
+.tools/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Local evidence that may contain sensitive values
+*.log
+secrets.local.*

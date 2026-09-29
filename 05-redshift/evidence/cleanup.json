@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-09-29T20:55:24Z",
+  "order": ["workgroup", "namespace", "bucket", "secret", "role"],
+  "status": "cleaned",
+  "verified_zero_resources": true,
+  "verification": {
+    "redshift_serverless_workgroups_with_prefix": [],
+    "redshift_serverless_namespaces_with_prefix": [],
+    "s3_buckets_with_prefix": [],
+    "secrets_with_prefix": [],
+    "iam_roles_with_prefix": []
+  },
+  "note": "Final namespace-first retry timed out before workload execution; asynchronous workgroup deletion completed and all remaining resources were removed and verified absent."
+}

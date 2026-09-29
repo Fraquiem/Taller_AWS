@@ -1,0 +1,42 @@
+{
+  "bucket_configured": true,
+  "catalog_table": "input",
+  "crawler_runs": 2,
+  "independent_prefix_audit": {
+    "all_zero": true,
+    "athena_workgroups": [],
+    "glue_crawlers": [],
+    "glue_databases": [],
+    "iam_roles": [],
+    "prefixes": [
+      "eia-p6-",
+      "EIA-P6-"
+    ],
+    "region": "us-east-2",
+    "s3_buckets": []
+  },
+  "region": "us-east-2",
+  "resources": {
+    "bucket": "eia-p6-241732001318-9071641758ab",
+    "bucket_created": true,
+    "crawler": "eia-p6-crawler-9071641758ab",
+    "crawler_created": true,
+    "database": "eia_p6_9071641758ab",
+    "database_created": true,
+    "output": "s3://eia-p6-241732001318-9071641758ab/athena-results/",
+    "policy_name": "EIA-P6-GluePolicy-9071641758ab",
+    "prefix": "input/",
+    "role_arn": "arn:aws:iam::241732001318:role/EIA-P6-Glue-9071641758ab",
+    "role_created": true,
+    "role_name": "EIA-P6-Glue-9071641758ab",
+    "workgroup": "eia-p6-wg-9071641758ab",
+    "workgroup_created": true
+  },
+  "role_created": true,
+  "tags": {
+    "Environment": "Lab",
+    "ManagedBy": "OMP",
+    "Point": "6",
+    "Project": "EIA-AWS-Activity"
+  }
+}

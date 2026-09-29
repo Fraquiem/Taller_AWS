@@ -1,0 +1,54 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Point6InputObjects",
+      "Effect": "Allow",
+      "Action": ["s3:PutObject", "s3:GetObject", "s3:DeleteObject"],
+      "Resource": "arn:aws:s3:::REPLACE_BUCKET/input/*"
+    },
+    {
+      "Sid": "Point6AthenaResultObjects",
+      "Effect": "Allow",
+      "Action": ["s3:PutObject", "s3:GetObject", "s3:DeleteObject"],
+      "Resource": "arn:aws:s3:::REPLACE_BUCKET/athena-results/*"
+    },
+    {
+      "Sid": "Point6BucketLocation",
+      "Effect": "Allow",
+      "Action": ["s3:GetBucketLocation", "s3:PutPublicAccessBlock", "s3:PutBucketEncryption", "s3:PutBucketTagging", "s3:DeleteBucket"],
+      "Resource": "arn:aws:s3:::REPLACE_BUCKET"
+    },
+    {
+      "Sid": "Point6BucketList",
+      "Effect": "Allow",
+      "Action": ["s3:ListBucket"],
+      "Resource": "arn:aws:s3:::REPLACE_BUCKET",
+      "Condition": {"StringLike": {"s3:prefix": ["input/*", "athena-results/*"]}}
+    },
+    {
+      "Sid": "Point6GlueCatalogAndCrawler",
+      "Effect": "Allow",
+      "Action": ["glue:CreateDatabase", "glue:DeleteDatabase", "glue:CreateCrawler", "glue:DeleteCrawler", "glue:StartCrawler", "glue:StopCrawler", "glue:GetCrawler", "glue:GetTables", "glue:CreateTable", "glue:DeleteTable"],
+      "Resource": "*"
+    },
+    {
+      "Sid": "Point6EphemeralGlueRole",
+      "Effect": "Allow",
+      "Action": ["iam:CreateRole", "iam:TagRole", "iam:PutRolePolicy", "iam:DeleteRolePolicy", "iam:DeleteRole", "iam:PassRole"],
+      "Resource": "arn:aws:iam::*:role/EIA-P6-Glue-*"
+    },
+    {
+      "Sid": "Point6AthenaWorkgroupAndQueries",
+      "Effect": "Allow",
+      "Action": ["athena:CreateWorkGroup", "athena:DeleteWorkGroup", "athena:StartQueryExecution", "athena:GetQueryExecution", "athena:GetQueryResults"],
+      "Resource": "*"
+    },
+    {
+      "Sid": "Point6CallerIdentity",
+      "Effect": "Allow",
+      "Action": "sts:GetCallerIdentity",
+      "Resource": "*"
+    }
+  ]
+}

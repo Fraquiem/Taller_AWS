@@ -1,0 +1,29 @@
+PLAN SIN EJECUCIÓN (Punto 5)
+
+1. Crear un bucket S3 temporal con bloqueo de acceso público, cifrado SSE-S3 y tags
+   Project=Punto5,Owner=student,TTL=lab. Sustituir REPLACE_BUCKET en las políticas.
+2. Crear/seleccionar un secreto de Secrets Manager con JSON {"username":"...",
+   "password":"..."}; nunca guardar ese valor en este repositorio.
+3. Crear el role de COPY con redshift-copy-role-trust.json y
+   redshift-copy-role-policy.json. Sustituir el bucket real.
+4. Crear workgroup Redshift Serverless en us-east-2 (namespace/database dev) y
+   asociar el role anterior como IAM role autorizado para COPY. Usar el mínimo de
+   capacidad permitido por la consola/API vigente y confirmar precio actual.
+5. Ejecutar redshift_workload.py --execute con variables de entorno. El programa
+   sube CSV, crea tablas, hace COPY, filtro, JOIN y agregación; espera estados
+   FINISHED y pagina resultados. No imprime contraseña.
+6. Evidencia: guardar solo conteos, IDs de statements y resultados sanitizados; no
+   guardar endpoint, SecretString, tokens ni respuestas completas de boto3.
+
+LIMPIEZA (en orden, con el mismo identificador de laboratorio)
+A. Ejecutar DROP TABLE IF EXISTS order_items, orders, customers mediante Data API.
+B. Eliminar el workgroup y namespace Serverless (confirmar que no son compartidos).
+C. Borrar objetos del prefijo S3 y después el bucket temporal.
+D. Eliminar el secreto (o programar recuperación, según política institucional).
+E. Eliminar policy inline/adjunta y role de COPY solo si fueron creados para este lab.
+F. Revisar Cost Explorer y CloudWatch; conservar evidencia sin secretos.
+
+La automatización opt-in equivalente está en `deploy_cleanup.py`: conserva
+estado incremental en `evidence/state.json` y ejecuta la limpieza aun cuando
+falle una operación intermedia. La evidencia generada debe revisarse sin
+publicar `SecretString`, contraseñas, tokens o respuestas completas.

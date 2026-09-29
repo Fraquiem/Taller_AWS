@@ -1,0 +1,22 @@
+{
+  "timestamp_utc": "2026-09-29T18:04:39Z",
+  "region": "us-east-2",
+  "terraform_destroy": "16_destroyed",
+  "tunnel": "closed",
+  "local_key_file": "removed",
+  "aws_keypair": "deleted",
+  "documentdb_clusters": "not_found",
+  "documentdb_instances": "not_found",
+  "ec2_instances_tagged_point3": {
+    "terminated": 1,
+    "running_or_pending": 0
+  },
+  "ebs_volumes_tagged_point3": 0,
+  "vpcs_tagged_point3": 0,
+  "nat_gateways_tagged_point3": 0,
+  "enis_tagged_point3": 0,
+  "eips_tagged_point3": 0,
+  "matching_keypairs": "not_found",
+  "matching_secrets": "not_found_after_force_delete",
+  "notes": "Terminated EC2 record may remain in describe briefly; no running/pending instance, volumes, ENIs, VPC, NAT, EIP, DocumentDB, keypair, or secret found. No password or secret values recorded."
+}

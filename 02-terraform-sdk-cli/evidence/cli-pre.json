@@ -1,0 +1,20 @@
+{
+  "timestamp_utc": "2026-09-29T15:58:20.099659+00:00",
+  "region": "us-east-2",
+  "identity": "arn:aws:iam::241732001318:user/user_cli",
+  "configuration": {
+    "s3": "one bucket SSE-S3",
+    "ec2": "t3.micro, encrypted gp3 8 GiB",
+    "rds": "PostgreSQL db.t3.micro Single-AZ gp3 encrypted 20 GiB private managed password",
+    "vpc": "IGW, 1 public + 2 private subnets, route table, 2 SG",
+    "excluded": [
+      "NAT",
+      "EIP",
+      "Multi-AZ",
+      "final snapshots",
+      "endpoints",
+      "extra logs"
+    ]
+  },
+  "estimated_cost": "USD 0.033/hour; USD 5.54/168h per variant"
+}

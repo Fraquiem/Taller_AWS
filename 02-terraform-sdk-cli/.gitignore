@@ -1,0 +1,8 @@
+*.tfstate
+*.tfstate.*
+.terraform/
+*.tfvars
+*.auto.tfvars
+boto3-state.json
+terraform.tfplan
+*.pem

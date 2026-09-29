@@ -1,0 +1,8 @@
+{
+  "timestamp_utc": "2026-09-29T16:55:30Z",
+  "installed": true,
+  "version": "MongoDB Compass 1.49.11",
+  "graphical_connection": "not opened/visually validated; workload connection validated via Python over SSH tunnel",
+  "connection_instructions": "Use localhost:27018, TLS enabled, AWS global-bundle.pem CA, and credentials retrieved at runtime from Secrets Manager; do not save credentials",
+  "secret_values": "not recorded"
+}

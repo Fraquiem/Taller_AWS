@@ -1,0 +1,53 @@
+{
+  "timestamp_utc": "2026-09-29T15:53:54.933749+00:00",
+  "method": "boto3",
+  "region": "us-east-2",
+  "resources": {
+    "bucket": {
+      "name": "eia-aws-activity-fbf4fcb4",
+      "head_ok": true,
+      "encryption": {
+        "Rules": [
+          {
+            "ApplyServerSideEncryptionByDefault": {
+              "SSEAlgorithm": "AES256"
+            },
+            "BucketKeyEnabled": false,
+            "BlockedEncryptionTypes": {
+              "EncryptionType": [
+                "SSE-C"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "ec2": {
+      "id": "i-0d591f1e2a1cb6c2b",
+      "state": "running",
+      "type": "t3.micro"
+    },
+    "rds": {
+      "id": "eia-lab-fbf4fcb4",
+      "status": "available",
+      "engine": "postgres",
+      "class": "db.t3.micro",
+      "storage": 20,
+      "storage_type": "gp3",
+      "encrypted": true,
+      "multi_az": false,
+      "public": false,
+      "secret_arn": "arn:aws:secretsmanager:us-east-2:241732001318:secret:rds!db-38909f40-c760-46e2-b662-4f80da1142e7-p0P1VQ"
+    },
+    "secret": {
+      "arn": "arn:aws:secretsmanager:us-east-2:241732001318:secret:rds!db-38909f40-c760-46e2-b662-4f80da1142e7-p0P1VQ",
+      "exists": true,
+      "no_secret_string_read": true
+    },
+    "vpc": {
+      "id": "vpc-0f036dc5ffb208e2f",
+      "state": "available",
+      "cidr": "10.42.0.0/16"
+    }
+  }
+}

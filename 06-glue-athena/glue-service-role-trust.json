@@ -1,0 +1,13 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+    "Sid": "GlueAssumeRole",
+    "Effect": "Allow",
+    "Principal": {"Service": "glue.amazonaws.com"},
+    "Action": "sts:AssumeRole",
+    "Condition": {
+      "StringEquals": {"aws:SourceAccount": "REPLACE_ACCOUNT_ID"},
+      "ArnLike": {"aws:SourceArn": "arn:aws:glue:us-east-2:REPLACE_ACCOUNT_ID:crawler/eia-p6-*"}
+    }
+  }]
+}

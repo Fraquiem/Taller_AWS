@@ -1,0 +1,35 @@
+{
+  "append_count_query": {
+    "pages": 1,
+    "query_id": "8291233c-8584-4a58-802b-46eb6e4d681d",
+    "returned_rows": 1,
+    "state": "SUCCEEDED"
+  },
+  "catalog_table": "input",
+  "filter_query": {
+    "pages": 1,
+    "query_id": "936ed7a0-75d1-41c5-b154-e553c53deb95",
+    "returned_rows": 9,
+    "state": "SUCCEEDED"
+  },
+  "group_query": {
+    "pages": 1,
+    "query_id": "f0ae6dad-a84c-4426-853b-38dbe33a5a59",
+    "returned_rows": 4,
+    "state": "SUCCEEDED"
+  },
+  "update_query": {
+    "pages": 1,
+    "query_id": "c43fb653-90d8-4d6b-bf68-ee1413d9da59",
+    "returned_rows": 1,
+    "sanitized_result": [
+      {
+        "latest_amount": "275.00",
+        "latest_date": "2026-01-31",
+        "latest_status": "paid",
+        "order_id": "1003"
+      }
+    ],
+    "state": "SUCCEEDED"
+  }
+}

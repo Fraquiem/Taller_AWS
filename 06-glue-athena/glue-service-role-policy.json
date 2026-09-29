@@ -1,0 +1,8 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {"Sid":"ReadPoint6Input","Effect":"Allow","Action":["s3:GetObject"],"Resource":"arn:aws:s3:::REPLACE_BUCKET/input/*"},
+    {"Sid":"ListPoint6Input","Effect":"Allow","Action":["s3:ListBucket"],"Resource":"arn:aws:s3:::REPLACE_BUCKET","Condition":{"StringLike":{"s3:prefix":["input","input/*"]}}},
+    {"Sid":"CatalogOperations","Effect":"Allow","Action":["glue:GetDatabase","glue:GetDatabases","glue:CreateTable","glue:UpdateTable","glue:GetTable","glue:GetTables","glue:DeleteTable"],"Resource":"*"}
+  ]
+}

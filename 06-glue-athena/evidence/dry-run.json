@@ -1,0 +1,39 @@
+{
+  "aws_calls": [
+    "sts:GetCallerIdentity",
+    "s3:CreateBucket/PutObject",
+    "iam:CreateRole/PutRolePolicy",
+    "glue:CreateDatabase/CreateCrawler/StartCrawler",
+    "athena:CreateWorkGroup/StartQueryExecution"
+  ],
+  "dataset": {
+    "columns": [
+      "amount",
+      "customer_id",
+      "order_date",
+      "order_id",
+      "region",
+      "status"
+    ],
+    "rows": 24,
+    "unique_order_ids": 24
+  },
+  "mode": "dry-run",
+  "planned": [
+    "S3 CSV upload",
+    "ephemeral Glue role",
+    "Glue database/crawler",
+    "Athena workgroup",
+    "filter and GROUP BY queries",
+    "append crawler/query",
+    "cleanup"
+  ],
+  "region": "us-east-2",
+  "tags": {
+    "Environment": "Lab",
+    "ManagedBy": "OMP",
+    "Point": "6",
+    "Project": "EIA-AWS-Activity"
+  },
+  "timestamp": "2026-09-29T21:17:19.218064+00:00"
+}
