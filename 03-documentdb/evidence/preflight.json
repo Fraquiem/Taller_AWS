@@ -2,7 +2,7 @@
   "timestamp_utc": "2026-09-29T16:45:00Z",
   "identity": "arn:aws:iam::241732001318:user/user_cli",
   "region": "us-east-2",
-  "trusted_cidr": "201.221.176.28/32",
+  "trusted_cidr": "redacted",
   "serverless_offering": "docdb 5.0.0 db.serverless standard available",
   "existing_point3_tagged_resources": 0,
   "secret_values": "not recorded"

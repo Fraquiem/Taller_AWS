@@ -76,5 +76,5 @@ El orden exacto puede variar por dependencias; seguir primero el README y el scr
 
 - DocumentDB: Compass sí conectó, pero mostró warning de validación TLS desactivada; Python validó la CA de AWS de forma independiente.
 - Neptune: la ejecución real usó endpoint público como excepción temporal, restringido a `201.221.176.28/32`, TLS e IAM. No convertir ese patrón en configuración permanente.
-- Redshift: el workgroup quedó `MODIFYING`, no hubo workload real y el cleanup posterior verificó cero workgroups, namespaces, buckets, secretos y roles con el prefijo del punto.
-- Glue/Athena: no declarar resultados reales hasta que la ejecución en curso deje evidencia sanitizada; un `dry-run` no prueba creación ni consultas en AWS.
+- Redshift: el workgroup manual `eia-p5-manual-wg` terminó `AVAILABLE`; el workload IAM observó filtro de 3 filas, JOIN de 5 y agregación de 6. Los recursos temporales quedaron eliminados; el workgroup manual se conserva.
+- Glue/Athena: ejecución real completada; filtro de 9 filas, GROUP BY de 4, append/update `SUCCEEDED` y cleanup verificado. `state.json` se eliminó antes de entregar.
