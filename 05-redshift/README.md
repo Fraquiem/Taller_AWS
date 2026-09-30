@@ -1,9 +1,8 @@
 # Punto 5 — Amazon Redshift frente a RDS
 
-Artefactos reproducibles **sin acceso a AWS** para un laboratorio de analítica
-relacional. El repositorio no contiene credenciales, secretos, estado Terraform ni
-endpoints. El programa es `dry-run` por defecto; ninguna operación AWS ocurre sin
-`--execute`.
+Artefactos reproducibles para un laboratorio de analítica relacional. El programa
+es `dry-run` por defecto; ninguna operación AWS ocurre sin `--execute`. La prueba
+real se ejecutó sobre el workgroup manual `eia-p5-manual-wg`, que no fue eliminado.
 
 ## Decisión de arquitectura
 
@@ -27,37 +26,43 @@ provisionado; para OLTP de baja latencia, RDS es más apropiado.
 
 - `data/customers.csv`, `data/orders.csv`, `data/order_items.csv`: tres tablas
   relacionadas por `customer_id` y `order_id` (5, 6 y 7 filas).
-- `redshift_workload.py`: Boto3 S3 upload, lectura de secreto en runtime,
-  CREATE TABLE, COPY, filtro, JOIN, agregación y polling Data API con paginación
-  de resultados.
+- `redshift_workload.py`: carga S3, `CREATE TABLE`, `COPY`, filtro, JOIN,
+  agregación y polling Data API con paginación. Soporta el modo original con
+  `SecretArn` y el modo IAM Serverless explícito `--iam-auth`.
 - `redshift-copy-role-trust.json`: confianza para Redshift provisioned y
   Serverless; requisito importante para que COPY pueda asumir el role.
 - `redshift-copy-role-policy.json`: mínimo S3 `ListBucket` condicionado al prefijo
   y `GetObject` únicamente sobre los CSV.
 - `iam-policy.json`: permisos del operador para upload, `GetSecretValue` y Data API.
-- `deploy-cleanup-plan.txt`: procedimiento de despliegue y eliminación, sin
-  comandos destructivos automáticos.
+- `deploy-cleanup-plan.txt`: procedimiento de despliegue y eliminación.
 - `cost-control.md`: supuestos, límites, limpieza y enlaces oficiales.
 
 ## Despliegue efímero y evidencia
 
-`deploy_cleanup.py` es el wrapper opt-in para una corrida real. Genera nombres
-únicos, persiste `evidence/state.json` después de cada mutación, escribe
-evidencia sanitizada y ejecuta la limpieza en orden (workgroup, namespace, S3,
-secreto y role). El secreto se mantiene en memoria/runtime y nunca se guarda en
-el estado. La corrida usa `us-east-2` y solicita `baseCapacity=4` RPU; la
-creación exitosa del workgroup es la verificación operacional de disponibilidad
-de esa capacidad y de las APIs empleadas.
+`deploy_cleanup.py` es el wrapper opt-in para una corrida completamente efímera
+que crea y elimina su propio workgroup. Para la ejecución observada se reutilizó
+el workgroup manual `eia-p5-manual-wg`, que permaneció intacto.
 
-```bash
-cd 05-redshift
-/ruta/a/venv/bin/python deploy_cleanup.py --execute
+La ejecución real utilizó `redshift_workload.py --execute --iam-auth` contra:
+
+```text
+workgroup: eia-p5-manual-wg
+namespace: eia-p5-manual-ns
+database: dev
+base capacity: 4 RPU
 ```
 
-El wrapper elimina los recursos incluso si la carga falla. Revisar
-`evidence/preflight.json`, `infrastructure.json`, `workload.json`,
-`cleanup.json` y `state.json`; los archivos no deben contener `SecretString`,
-contraseña ni tokens de paginación.
+El Data API aceptó autenticación IAM sin `SecretArn`. Se crearon temporalmente
+un bucket S3 y un role COPY, se ejecutaron las tablas, `COPY`, filtro, JOIN y
+agregación, y se eliminaron el bucket y el role. El workgroup terminó
+`AVAILABLE`; no se conservaron contraseñas, secretos ni tokens.
+
+Evidencia:
+
+- `evidence/preflight.json`
+- `evidence/infrastructure.json`
+- `evidence/workload.json`
+- `evidence/cleanup.json`
 
 ## Validación local (no crea AWS)
 

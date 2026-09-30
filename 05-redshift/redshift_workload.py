@@ -69,6 +69,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--workgroup", default=os.getenv("REDSHIFT_WORKGROUP"))
     parser.add_argument("--database", default=os.getenv("REDSHIFT_DATABASE", "dev"))
     parser.add_argument("--secret-arn", default=os.getenv("REDSHIFT_SECRET_ARN"))
+    parser.add_argument("--iam-auth", action="store_true", default=os.getenv("REDSHIFT_IAM_AUTH") == "1", help="use Data API IAM authentication (no SecretArn)")
     parser.add_argument("--copy-role-arn", default=os.getenv("REDSHIFT_COPY_ROLE_ARN"))
     parser.add_argument("--poll-seconds", type=float, default=2.0)
     return parser.parse_args()
@@ -96,12 +97,14 @@ def get_secret(secretsmanager: Any, secret_arn: str) -> dict[str, Any]:
 
 
 def execute(data_api: Any, sql: str, args: argparse.Namespace) -> str:
-    response = data_api.execute_statement(
-        WorkgroupName=args.workgroup,
-        Database=args.database,
-        SecretArn=args.secret_arn,
-        Sql=sql,
-    )
+    request = {
+        "WorkgroupName": args.workgroup,
+        "Database": args.database,
+        "Sql": sql,
+    }
+    if not args.iam_auth:
+        request["SecretArn"] = args.secret_arn
+    response = data_api.execute_statement(**request)
     statement_id = response["Id"]
     while True:
         status = data_api.describe_statement(Id=statement_id)
@@ -138,9 +141,10 @@ def main() -> int:
     missing = [name for name, value in {
         "--bucket/REDSHIFT_S3_BUCKET": args.bucket,
         "--workgroup/REDSHIFT_WORKGROUP": args.workgroup,
-        "--secret-arn/REDSHIFT_SECRET_ARN": args.secret_arn,
         "--copy-role-arn/REDSHIFT_COPY_ROLE_ARN": args.copy_role_arn,
     }.items() if not value]
+    if not args.iam_auth and not args.secret_arn:
+        missing.append("--secret-arn/REDSHIFT_SECRET_ARN")
     if missing:
         raise ValueError("Faltan parámetros: " + ", ".join(missing))
     for table in TABLES:
@@ -159,7 +163,8 @@ def main() -> int:
     s3 = session.client("s3")
     secretsmanager = session.client("secretsmanager")
     data_api = session.client("redshift-data")
-    get_secret(secretsmanager, args.secret_arn)
+    if not args.iam_auth:
+        get_secret(secretsmanager, args.secret_arn)
     for table in TABLES:
         s3.upload_file(str(DATA_DIR / f"{table}.csv"), args.bucket, f"{args.prefix.strip('/')}/{table}.csv")
     for table in TABLES:

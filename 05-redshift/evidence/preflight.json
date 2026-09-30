@@ -1,14 +1,13 @@
 {
-  "api_checks": [
-    "redshift-serverless.list_namespaces",
-    "redshift-serverless.list_workgroups",
-    "redshift-data.execute_statement",
-    "secretsmanager.get_secret_value",
-    "s3.upload_file",
-    "iam.create_role"
-  ],
-  "execute": false,
   "region": "us-east-2",
-  "requested_base_capacity_rpu": 4,
-  "timestamp": "2026-09-29T21:06:41.114970+00:00"
+  "account_id": "241732001318",
+  "workgroup": "eia-p5-manual-wg",
+  "namespace": "eia-p5-manual-ns",
+  "database": "dev",
+  "status": "AVAILABLE",
+  "statusReason": null,
+  "baseCapacity": 4,
+  "publiclyAccessible": false,
+  "identity": "arn:aws:iam::241732001318:user/user_cli",
+  "password_or_secret_value_recorded": false
 }

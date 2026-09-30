@@ -1,11 +1,18 @@
 {
-  "timestamp": "2026-09-29T20:55:24Z",
   "region": "us-east-2",
+  "workgroup": "eia-p5-manual-wg",
+  "namespace": "eia-p5-manual-ns",
   "base_capacity_rpu": 4,
-  "namespace_created_without_iam_roles": true,
-  "workgroup_requested": true,
-  "status_observed": "MODIFYING",
-  "api_preflight_verified": true,
-  "workload_ready": false,
-  "note": "Namespace-first sequencing did not resolve the persistent MODIFYING state; no workload results were produced."
+  "initial_status": "AVAILABLE",
+  "final_status": "AVAILABLE",
+  "publicly_accessible": false,
+  "database": "dev",
+  "auth": "IAM Data API",
+  "temporary_resources_cleaned": {
+    "s3_buckets": 0,
+    "iam_roles": 0,
+    "secrets": 0
+  },
+  "namespace_iam_roles_after_cleanup": [],
+  "note": "El workgroup manual no fue eliminado. Se usó para ejecutar el workload y quedó AVAILABLE; solo se eliminaron bucket, role y secreto temporales."
 }
