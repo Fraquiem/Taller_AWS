@@ -42,8 +42,8 @@ acceder mediante:
    EC2 Messages y SSMMessages y permisos de sesión.
 
 Ninguna bastion ni sesión SSM fue creada en esta ejecución. El acceso público /32
-fue una excepción controlada para poder ejecutar desde la máquina local, no el
-patrón recomendado de producción.
+fue una excepción controlada para ejecutar desde la máquina local; no constituye
+una configuración permanente.
 
 ## Coste estimado de capacidad
 

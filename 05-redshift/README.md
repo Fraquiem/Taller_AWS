@@ -14,13 +14,12 @@ real se ejecutó sobre el workgroup manual `eia-p5-manual-wg`, que no fue elimin
 | Operación | Data API evita gestionar conexiones desde el cliente | Normalmente endpoint/VPC y driver/conexión |
 | Elección | **Elegido** para consultas intermitentes cortas | Alternativa si predominan OLTP, transacciones y conexiones persistentes |
 
-Para una práctica breve e intermitente se recomienda **Redshift Serverless** en
-`us-east-2`, empezando por el mínimo de capacidad permitido por AWS en el momento
-de despliegue. No se debe describir como “gratis” ni como escala-a-cero: existe
-consumo mínimo/facturación según capacidad y duración, y S3, Secrets Manager y
-transferencia pueden añadir cargos. Confirmar precios regionales antes de crear
-recursos. Para una carga continua y predecible debe compararse con un cluster
-provisionado; para OLTP de baja latencia, RDS es más apropiado.
+Para una práctica breve e intermitente, la configuración documentada es Redshift
+Serverless en `us-east-2`, con la capacidad mínima permitida por AWS al momento
+del despliegue. No es “gratis” ni escala a cero: existe consumo mínimo o
+facturación según capacidad y duración, y S3, Secrets Manager y transferencia
+pueden añadir cargos. Para una carga continua y predecible se compara con un
+cluster provisionado; para OLTP de baja latencia, RDS es más apropiado.
 
 ## Archivos
 

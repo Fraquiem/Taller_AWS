@@ -35,8 +35,8 @@ una cuarta variante.
 
 ## Diseño y seguridad observados
 
-- S3 privado con bloqueo de acceso público, cifrado SSE-S3 y expiración opcional
-  de objetos a siete días.
+- S3 privado con bloqueo de acceso público, cifrado SSE-S3 y expiración de objetos
+  a siete días.
 - EC2 `t3.micro` en una subred pública, IMDSv2 obligatorio y EBS gp3 cifrado de
   8 GiB. La regla SSH usa `trusted_cidr`; para una prueba real debe ser la IP
   pública del operador en `/32`, no `0.0.0.0/0`.

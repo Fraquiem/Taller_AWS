@@ -10,7 +10,7 @@ Configuración seleccionada: un secreto y dos lecturas `GetSecretValue`, una act
 
 La página oficial de precios consultada el 2026-09-29 publica USD 0.40 por secreto-mes y USD 0.05 por 10,000 llamadas API: <https://aws.amazon.com/secrets-manager/pricing/>. El costo horario aproximado del almacenamiento de un secreto es `0.40 / (365 × 24) = USD 0.0000457/h`; la prueba realizó pocas llamadas, por debajo de una fracción de centavo. El costo exacto de la cuenta puede verse afectado por créditos o Free Tier.
 
-No hay un componente que cobre por tráfico. Un secreto activo genera almacenamiento aunque no se consulte; las llamadas API se cobran por volumen. Consultar repetidamente el mismo secreto aumenta las llamadas, no crea secretos adicionales. Para una aplicación de alta frecuencia conviene recuperar una vez y conservar el valor en memoria durante la vida segura del proceso, con una estrategia de expiración adecuada; no debe registrarse ni persistirse sin necesidad.
+No hay un componente que cobre por tráfico. Un secreto activo genera almacenamiento aunque no se consulte; las llamadas API se cobran por volumen. Consultar repetidamente el mismo secreto aumenta las llamadas, no crea secretos adicionales. En procesos de alta frecuencia, una lectura por proceso y retención en memoria durante su vida segura, con expiración adecuada, reduce llamadas API; el valor no debe registrarse ni persistirse sin necesidad.
 
 `PutSecretValue` fue una actualización manual que creó una nueva versión y movió `AWSCURRENT`; no es rotación administrada. En esta práctica no se configuró ni ejecutó una Lambda de rotación. La rotación automática debe documentarse y costearse por separado porque puede añadir ejecución de Lambda y permisos adicionales.
 

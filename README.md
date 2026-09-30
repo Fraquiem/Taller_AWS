@@ -40,8 +40,7 @@ El ARN esperado debe corresponder a `user_cli` y la región a `us-east-2`. No us
 - Mantener S3 privado y cifrado; restringir `iam:PassRole` y los roles de servicio a los recursos exactos.
 - Usar security groups con orígenes `/32` o referencias a otros security groups; nunca abrir SSH o bases de datos a `0.0.0.0/0`.
 - Tratar Terraform state, planes, claves privadas y tokens como información sensible.
-- En DocumentDB, Compass mostró una advertencia de validación TLS desactivada, aunque Python validó la CA de AWS. La captura no demuestra validación de CA en Compass.
-- Neptune usó como excepción un endpoint público temporal restringido a `201.221.176.28/32`, con TLS e IAM; para nuevos usos se recomienda acceso privado mediante SSM o bastión restringido.
+- Neptune usó como excepción un endpoint público temporal restringido a `201.221.176.28/32`, con TLS e IAM. El acceso privado mediante SSM o bastión restringido reduce la exposición y queda descrito como control de seguridad.
 
 ## Ejecución y cleanup
 

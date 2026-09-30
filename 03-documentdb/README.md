@@ -205,15 +205,14 @@ deshabilitada. Por ello, la conexión GUI sí tuvo éxito, pero no se puede afir
 que Compass haya validado la CA. La validación de la CA corresponde al workload
 Python y no debe atribuirse a Compass.
 
-Para un entorno de producción o laboratorio seguro, seleccionar en Compass el
-archivo de CA confiable (`/tmp/global-bundle.pem` en esta práctica) y mantener
-activa la validación del certificado. Si la versión de Compass admite relajar
-**solo** la validación del hostname para el túnel local, esa opción puede usarse
-con el CA todavía validado; si no la admite, no se debe deshabilitar la
-validación del certificado: hay que usar un nombre que coincida con el
-certificado o una alternativa de túnel/DNS compatible. La captura documenta
-la limitación de esta ejecución y el estado final se confirma en
-[`cleanup-final.json`](evidence/cleanup-final.json).
+En un entorno seguro, seleccionar en Compass el archivo de CA confiable
+(`/tmp/global-bundle.pem` en esta práctica) y mantener activa la validación del
+certificado. Si la versión de Compass admite relajar **solo** la validación del
+hostname para el túnel local, esa opción puede usarse con el CA todavía validado;
+si no la admite, no se debe deshabilitar la validación del certificado: hay que
+usar un nombre que coincida con el certificado o una alternativa de túnel/DNS
+compatible. La captura documenta la limitación de esta ejecución y el estado final
+se confirma en [`cleanup-final.json`](evidence/cleanup-final.json).
 
 ## Secretos y state de Terraform
 
@@ -247,7 +246,8 @@ PATH="../.tools:$PATH" ./cleanup.sh
 
 `cleanup.sh` ejecuta `terraform destroy -auto-approve`, elimina el key pair EC2
 si `KEY_NAME` está definido y borra la clave privada local. Si un secreto quedó
-retenido y se tiene el ARN confirmado, la eliminación inmediata opcional es:
+retenido y se tiene el ARN confirmado, `FORCE_DELETE_SECRET=1` permite eliminarlo
+sin ventana de recuperación:
 
 ```bash
 export SECRET_ARN='ARN_REDACTADO'

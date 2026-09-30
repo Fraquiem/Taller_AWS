@@ -1,6 +1,6 @@
 # Control de costos del taller
 
-Todas las estimaciones corresponden a **`us-east-2`**, son hipotéticas y sirven para planear una ventana corta. Las tarifas, mínimos de facturación, créditos, impuestos y Free Tier cambian: consultar las páginas oficiales antes de cada ejecución. Ninguna cifra de esta guía es una factura ni un cargo observado salvo donde el README del punto enlaza evidencia explícita.
+Todas las estimaciones corresponden a **`us-east-2`**, son valores de planificación. Las tarifas, mínimos de facturación, créditos, impuestos y Free Tier cambian: consultar las páginas oficiales antes de cada ejecución. Ninguna cifra de esta guía es una factura ni un cargo observado salvo donde el README del punto enlaza evidencia explícita.
 
 ## Estimaciones por punto
 

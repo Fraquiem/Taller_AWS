@@ -108,11 +108,11 @@ Neptune DB, 1 writer db.t3.medium, subnets privadas en 2 AZ
 
 ### Comparación con endpoint público
 
-Un endpoint público simplifica la demo local, pero aumenta superficie de ataque y
-no elimina la necesidad de VPC, SG, TLS e IAM. Solo sería aceptable para una prueba
-controlada con CIDR /32, sin `0.0.0.0/0`, IAM/TLS y cierre inmediato. La opción
-privada + bastion/SSM es la recomendada; la ejecución real documentada aquí usó el
-endpoint público restringido únicamente como excepción temporal.
+Un endpoint público simplifica el acceso local, pero aumenta superficie de ataque y
+no elimina la necesidad de VPC, SG, TLS e IAM. La ejecución real documentada usó
+un CIDR /32, sin `0.0.0.0/0`, IAM/TLS y cierre inmediato. El acceso privado con
+bastion/SSM reduce la exposición; la ejecución real usó el endpoint público
+restringido únicamente como excepción temporal.
 
 ## Coste de capacidad y control de gasto
 
@@ -148,9 +148,9 @@ clusters/instancias Neptune, SG/subnet groups/IGW etiquetados, EIP, NAT o ENI.
 
 El endpoint público fue una excepción controlada para esta prueba: SG TCP/8182
 solo desde `201.221.176.28/32`, sin `0.0.0.0/0`, TLS e IAM DB authentication.
-Para uso normal se recomienda evitarlo y usar una instancia EC2 privada administrada
-por SSM con `AWS-StartPortForwardingSessionToRemoteHost` (o un túnel SSH local
-restringido a /32); así Neptune permanece privado y no se expone el puerto 8182.
+Para uso normal, una instancia EC2 privada administrada por SSM con
+`AWS-StartPortForwardingSessionToRemoteHost` (o un túnel SSH local restringido a
+/32) mantiene Neptune privado y evita exponer el puerto 8182.
 SSM requiere endpoints privados y permisos de sesión, mientras SSH requiere SG/22
 restringido y una clave o agente administrado. Ninguna alternativa se creó en esta
 ejecución.

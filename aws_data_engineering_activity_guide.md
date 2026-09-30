@@ -62,7 +62,7 @@ Explique cómo autentica `user_cli` las herramientas. No guarde sus claves de ac
 
 ## 3. Amazon DocumentDB
 
-Compare DocumentDB con MongoDB e identifique al menos tres diferencias que podrían afectar una aplicación existente. Despliegue DocumentDB con una configuración de bajo costo. Compare una instancia aprovisionada con DocumentDB Serverless, disponible con una capacidad mínima configurable de 0,5 DCU, y justifique cuál resulta más económica para su región y tiempo de uso.
+Compare DocumentDB con MongoDB e identifique al menos tres diferencias con impacto en una aplicación existente. Despliegue DocumentDB con una configuración de bajo costo. Compare una instancia aprovisionada con DocumentDB Serverless, disponible con una capacidad mínima configurable de 0,5 DCU, y justifique cuál resulta más económica para su región y tiempo de uso.
 
 DocumentDB está dentro de una VPC y no ofrece conexión pública directa desde su computador. Prepare una instancia EC2 en la misma VPC y un túnel SSH. Configure los grupos de seguridad, TLS y el certificado necesarios. Compruebe la conexión desde MongoDB Compass y desde Python. Gestione la contraseña de DocumentDB con Secrets Manager y recupérela desde el programa.
 
@@ -117,7 +117,7 @@ Explique qué pregunta responde cada consulta e interprete los resultados. Puede
 ### Preguntas de costos
 1. ¿Qué modalidad de Redshift cuesta menos para esta práctica?
 2. ¿Cómo se cobran el cómputo y el almacenamiento?
-3. ¿Qué recursos podrían seguir generando cargos después de ejecutar las consultas?
+3. ¿Qué recursos siguen generando cargos después de ejecutar las consultas?
 
 ### Entregables
 * Respuestas a preguntas.

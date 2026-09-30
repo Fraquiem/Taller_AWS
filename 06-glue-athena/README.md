@@ -42,10 +42,10 @@ las filas. El crawler inspecciona objetos bajo `s3://<bucket>/input/`, infiere e
 esquema y actualiza la tabla. Athena ejecuta SQL sobre los objetos en S3 usando el
 catálogo y escribe resultados en `s3://<bucket>/athena-results/`.
 
-Para corregir un error de inferencia se debe revisar la tabla, normalizar el CSV o
-crear/editar la tabla manualmente con tipos explícitos. El crawler es conveniente
-para descubrimiento y cambios de esquema; la tabla manual ofrece control exacto,
-especialmente en producción. Ninguno convierte CSV en una tabla transaccional.
+Para corregir un error de inferencia se revisa la tabla, se normaliza el CSV o se
+crea/edita la tabla manualmente con tipos explícitos. El crawler sirve para
+descubrimiento y cambios de esquema; la tabla manual ofrece control exacto.
+Ninguno convierte CSV en una tabla transaccional.
 
 ## Append y update
 
@@ -53,8 +53,9 @@ El wrapper carga el seed, `append.csv` y `update.csv`, vuelve a ejecutar el
 crawler y consulta el catálogo. En S3 un append es otro objeto: no se modifica
 una fila dentro del CSV. `update.csv` contiene una versión posterior de `order_id`
 1003; la consulta usa `max_by(..., order_date)` para seleccionar el importe y
-estado vigentes. Para producción, prefiera formato columnar/particionado y un
-proceso ACID. Un crawler no mergea ni deduplica registros por sí solo.
+estado vigentes. El formato columnar y el particionado reducen el volumen
+escaneado; un proceso ACID gestiona actualizaciones transaccionales. Un crawler
+no mergea ni deduplica registros por sí solo.
 
 ## Validación local (no AWS)
 
@@ -92,16 +93,16 @@ cualquier paso marcado `*_error`.
 ## IAM mínimo y secretos
 
 El operador necesita únicamente las acciones del archivo de política, restringidas
-al bucket/prefijo generado en la revisión final. El role de Glue solo lee el prefijo
-S3 y escribe/lee metadatos del catálogo. En una revisión real conviene restringir
-ARNs de base de datos/crawler y `iam:PassRole` al ARN exacto del role; nunca usar
-`iam:PassRole` con `Resource: "*"`.
+al bucket/prefijo generado en la revisión final. El role de Glue solo lee el
+prefijo S3 y escribe/lee metadatos del catálogo. La restricción de ARN de base de
+datos/crawler e `iam:PassRole` al ARN exacto del role reduce permisos; nunca usar
+`iam:PassRole` con `Resource: "*"` .
 
 Este flujo usa S3, Glue y Athena mediante IAM. No requiere credencial de aplicación
 ni secreto en Secrets Manager: no hay base de datos externa, contraseña ni API key.
-Si se agrega una conexión JDBC u otro sistema que sí tenga credenciales, deberán
-crearse en Secrets Manager y otorgar solo `secretsmanager:GetSecretValue` al role
-que las necesite.
+Si existe una conexión JDBC u otro sistema con credenciales, requiere un secreto
+en Secrets Manager y solo `secretsmanager:GetSecretValue` para el role que lo
+necesite.
 
 ## Cleanup y orden
 
@@ -139,7 +140,7 @@ confirmar la tarifa efectiva de la región antes de ejecutar):
 | S3 Standard | USD 0.023 por GB-mes para los primeros 50 TB en regiones aplicables | Un CSV pequeño y resultados retenidos brevemente: almacenamiento despreciable, pero solicitudes y transferencia no son cero |
 | Glue Data Catalog | consultar la sección de objetos/metadatos de la página de Glue | una base y una tabla pequeñas; no asumir gratuidad fuera de las asignaciones vigentes |
 
-Los importes son una **estimación hipotética**, no un cargo observado ni una
+Los importes son una **estimación orientativa**, no un cargo observado ni una
 garantía: DPUs/duración efectiva, redondeos, resultados, requests, transferencia,
 impuestos y cambios de tarifa pueden alterarlos.
 

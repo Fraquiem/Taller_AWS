@@ -15,7 +15,7 @@ El programa de este repositorio espera un objeto JSON y solo imprime metadatos n
 
 ## Conceptos y flujo
 
-Conviene distinguir estas operaciones:
+Las operaciones se distinguen así:
 
 1. **Crear:** registra un secreto y su valor inicial.
 2. **Leer:** la aplicación solicita `GetSecretValue`; la autorización depende de la identidad de AWS y de una política IAM que permita leer el secreto concreto.
@@ -160,7 +160,7 @@ La estimación documentada en [`cost-control.md`](cost-control.md), para `us-eas
 - USD 0.40 por secreto-mes.
 - USD 0.05 por 10.000 llamadas a la API.
 - Un secreto activo genera costo de almacenamiento aunque no se consulte; consultar repetidamente el mismo secreto incrementa las llamadas API, no crea secretos adicionales.
-- Para una aplicación de alta frecuencia puede ser conveniente leer una vez y conservar el valor en memoria durante la vida segura del proceso, con una expiración adecuada. No debe registrarse ni persistirse innecesariamente.
+- En procesos de alta frecuencia, una lectura por proceso y retención en memoria durante su vida segura, con expiración adecuada, reduce llamadas API; el valor no debe registrarse ni persistirse innecesariamente.
 - El costo horario aproximado de almacenamiento de un secreto es `0.40 / (365 × 24) = USD 0.0000457/h`. Las pocas llamadas de esta prueba representan menos de una fracción de centavo; el total real puede depender de créditos o Free Tier.
 - La prueba no creó Lambda de rotación, una clave KMS administrada por el cliente, VPC, EC2 ni recursos auxiliares. El secreto usó la clave administrada por AWS para Secrets Manager.
 
