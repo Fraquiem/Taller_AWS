@@ -1,4 +1,7 @@
 # Taller AWS — Ingeniería de Datos
+Hecho por:
+- Sebastián Pérez
+- Emanuel Quintero
 
 Repositorio educativo de la actividad AWS 2026-2. Cada carpeta numerada contiene el código, las instrucciones y la evidencia sanitizada de un punto. La región de trabajo es **Ohio (`us-east-2`)**.
 
@@ -15,10 +18,6 @@ La actividad recorre secretos, aprovisionamiento, bases de datos documentales y 
 
 La [guía fuente](aws_data_engineering_activity_guide.md) define los entregables. Los enlaces a `evidence/` en cada README son la fuente de los hechos observados; los archivos de estado, secretos, claves privadas y credenciales no forman parte de la entrega.
 
-## Estado resumido
-
-- **Punto 5:** el workgroup manual `eia-p5-manual-wg` quedó `AVAILABLE` y se ejecutó el workload real mediante Data API con autenticación IAM. Se cargaron 5/6/7 filas en las tres tablas; filtro, JOIN y agregación terminaron correctamente. Bucket y role temporales eliminados; el workgroup manual se conservó.
-- **Punto 6:** ejecución real completada y limpiada. Athena devolvió 9 filas en el filtro y 4 filas en el `GROUP BY`; append/update y dos corridas del crawler terminaron `SUCCEEDED`. La evidencia no contiene credenciales.
 
 ## Autenticación y región
 
